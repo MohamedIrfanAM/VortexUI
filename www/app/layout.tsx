@@ -1,6 +1,6 @@
 import "./globals.css";
 
-import { globalTokens as $ } from "./globalTokens.stylex";
+import { colors } from "./globalTokens.stylex";
 import * as stylex from "@stylexjs/stylex";
 
 export const metadata = {
@@ -20,9 +20,6 @@ export default function RootLayout({
   );
 }
 
-const DARK = "@media (prefers-color-scheme: dark)";
-const fgColor = `rgba(${$.foregroundR}, ${$.foregroundG}, ${$.foregroundB}, 1)`;
-
 const styles = stylex.create({
   html: {
     colorScheme: "light dark",
@@ -33,10 +30,7 @@ const styles = stylex.create({
     padding: 0,
   },
   body: {
-    color: fgColor,
-    backgroundImage: {
-      default: "linear-gradient(to bottom, rgb(214, 219, 220), white)",
-      [DARK]: "linear-gradient(to bottom, rgb(20, 22, 27), black)",
-    },
+    color: colors.primaryForeground,
+    backgroundColor: colors.background,
   },
 });
